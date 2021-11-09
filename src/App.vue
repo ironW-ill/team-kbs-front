@@ -7,6 +7,7 @@
     </v-app-bar>
 
     <v-main>
+      <!-- router/index.js 기준으로 여기가 바뀐다. -->
       <router-view />
     </v-main>
   </v-app>
