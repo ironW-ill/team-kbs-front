@@ -1,4 +1,5 @@
 <template >
+<v-container>
     <v-form
     ref="form"
     v-model="valid"
@@ -67,6 +68,7 @@
       초기화
     </v-btn>
   </v-form>
+</v-container>
 </template>
 <script>
 export default {

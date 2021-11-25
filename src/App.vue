@@ -8,7 +8,9 @@
   >
   <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-  <v-toolbar-title>영상제작소</v-toolbar-title>
+  <v-toolbar-title>
+    <router-link :to="{path:'/Home'}"><span style="color:white">영상제작소</span></router-link>
+  </v-toolbar-title>
 
   <v-spacer></v-spacer>
 
@@ -53,9 +55,9 @@
         </v-list-item>
       </v-list>
   </v-navigation-drawer>
-  <v-content app>
+  <v-main app>
     <router-view/>
-  </v-content>
+  </v-main>
   <!-- 푸터 영역 -->
   <v-footer color="primary" dark>
     <v-spacer/> 2021 copyright by kbs
@@ -75,6 +77,7 @@ export default {
           { title: '재생확인', icon: 'mdi-help-box' ,to:"/showVideo"},
           { title: '파일업로드', icon: 'mdi-view-dashboard' ,to:"/fileInsert"},
           { title: '회원가입', icon: 'mdi-view-dashboard' ,to:"/registUser"},
+          { title: '로그인', icon: 'mdi-view-dashboard' ,to:"/loginUser"},
         ],
         right: null,
       }
