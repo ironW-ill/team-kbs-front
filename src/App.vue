@@ -6,7 +6,7 @@
     color="primary"
     dark
   >
-  <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
   <v-toolbar-title>영상제작소</v-toolbar-title>
 
@@ -19,7 +19,7 @@
   </v-app-bar>
 
   <!-- 네비게이션 -->
-  <v-navigation-drawer app>
+  <v-navigation-drawer v-model="drawer" app>
     <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
@@ -68,11 +68,13 @@ export default {
   name:"App",
   data () {
       return {
+        drawer: false,
         items: [
           { title: '영화', icon: 'mdi-view-dashboard' ,to:"/home"},
           { title: '애니', icon: 'mdi-image' ,to:"/ab"},
           { title: '재생확인', icon: 'mdi-help-box' ,to:"/showVideo"},
           { title: '파일업로드', icon: 'mdi-view-dashboard' ,to:"/fileInsert"},
+          { title: '회원가입', icon: 'mdi-view-dashboard' ,to:"/registUser"},
         ],
         right: null,
       }
