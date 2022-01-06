@@ -38,21 +38,19 @@
       </v-container>
     </v-main>
     <!-- 푸터 영역 -->
-    <v-footer color="primary" dark>
-      <v-spacer /> 2021 copyright by Spartan-Coin
-    </v-footer>
+    <v-footer color="primary" dark> <v-spacer /> 2021 copyright by Spartan-Coin </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
       drawer: false,
-      items: [{ title: "MAIN", icon: "mdi-view-dashboard", to: "/" }],
-      right: null,
-    };
-  },
-};
+      items: [{ title: 'MAIN', icon: 'mdi-view-dashboard', to: '/' }],
+      right: null
+    }
+  }
+}
 </script>

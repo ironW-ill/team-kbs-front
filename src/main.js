@@ -1,23 +1,17 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import vuetify from "./plugins/vuetify";
-import axios from "axios";
-import VideoPlayer from 'vue-video-player'
-require('video.js/dist/video-js.css')
-require('vue-video-player/src/custom-theme.css')
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import vuetify from './plugins/vuetify'
+import axios from 'axios'
 
-Vue.config.productionTip = false;
-Vue.prototype.$axios = axios;
-Vue.prototype.$coingecko = 'https://api.coingecko.com/api';
-
-
-Vue.use(VideoPlayer)
+Vue.config.productionTip = false
+Vue.prototype.$axios = axios
+Vue.prototype.$coingecko = 'https://api.coingecko.com/api'
 
 new Vue({
   router,
   store,
   vuetify,
-  render: (h) => h(App),
-}).$mount("#app");
+  render: (h) => h(App)
+}).$mount('#app')
