@@ -10,6 +10,7 @@ require('vue-video-player/src/custom-theme.css')
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
+Vue.prototype.$coingecko = 'https://api.coingecko.com/api';
 
 
 Vue.use(VideoPlayer)
