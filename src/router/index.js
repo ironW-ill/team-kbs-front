@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/MainPage.vue'
+import MainPage from '../views/MainPage.vue'
+import CoinList from '../views/coins/CoinList.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +9,12 @@ const routes = [
   {
     path: '/',
     name: 'MainPage',
-    component: Main
+    component: MainPage
+  },
+  {
+    path: '/coins',
+    name: 'CoinList',
+    component: CoinList
   }
 ]
 

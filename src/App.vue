@@ -33,7 +33,7 @@
     </v-navigation-drawer>
 
     <v-main app>
-      <v-container>
+      <v-container class="my-12">
         <router-view />
       </v-container>
     </v-main>
@@ -48,7 +48,10 @@ export default {
   data() {
     return {
       drawer: false,
-      items: [{ title: 'MAIN', icon: 'mdi-view-dashboard', to: '/' }],
+      items: [
+        { title: 'MAIN', icon: 'mdi-view-dashboard', to: '/' },
+        { title: 'COIN-LIST', icon: 'mdi-view-dashboard', to: '/coins' }
+      ],
       right: null
     }
   }
