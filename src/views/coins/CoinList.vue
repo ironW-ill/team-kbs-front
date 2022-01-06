@@ -4,14 +4,11 @@
       ><template>
         <v-card>
           <v-card-title>
-            <v-text-field append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+            <v-text-field append-icon="mdi-magnify" label="Search" single-line hide-details v-model="search"></v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="coinList">
+          <v-data-table :headers="headers" :items="coinList" @click:row="showDialog" :search="search">
             <template v-slot:[`item.image`]="{ item }">
-              <!--<v-img max-width="35" :src="item.image" />-->
-              <tr @click="showDialog(item.id)">
-                <v-img max-width="35" :src="item.image" />
-              </tr>
+              <v-img max-width="35" :src="item.image" />
             </template>
           </v-data-table>
         </v-card>
@@ -36,6 +33,7 @@ export default {
     return {
       coinDetail: false,
       coinId: '',
+      search: '',
       coinList: [],
       headers: [
         { text: '#', value: 'image', align: 'left' },
@@ -47,8 +45,8 @@ export default {
   },
 
   methods: {
-    showDialog(id) {
-      this.coinId = id
+    showDialog(row) {
+      this.coinId = row.id
       this.coinDetail = true
     },
     hideDialog() {
@@ -62,7 +60,7 @@ export default {
       .get(this.$coingecko + '/v3/coins/markets', { params: { vs_currency: 'krw', per_page: '100', page: '1', sparkline: false } })
       .then((res) => {
         const resData = res.data
-        console.log(resData)
+        //console.log(resData)
         this.coinList = resData
       })
   }

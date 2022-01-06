@@ -4,9 +4,9 @@
       ><template>
         <v-card>
           <v-card-title>
-            <v-text-field append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+            <v-text-field append-icon="mdi-magnify" label="Search" single-line hide-details v-model="search"></v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="coinList">
+          <v-data-table :headers="headers" :items="coinList" :search="search">
             <template v-slot:[`item.large`]="{ item }">
               <v-img max-width="35" :src="item.large" />
             </template>
@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       coinList: [],
+      search: '',
       headers: [
         { text: '#', value: 'large', align: 'left' },
         { text: '코인명', value: 'id', align: 'left' },
