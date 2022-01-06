@@ -28,17 +28,17 @@ export default {
         { text: '코인명', value: 'id', align: 'left' },
         { text: '심볼명', value: 'symbol', aligh: 'left' },
         { text: '현재가', value: 'price_btc', aligh: 'left' }
-      ]}
+      ]
+    }
   },
 
   created() {
-    this.$axios.get("https://api.coingecko.com/api/v3/search/trending").then((res) => {
+    this.$axios.get('https://api.coingecko.com/api/v3/search/trending').then((res) => {
       const resData = res.data.coins
-      for(let i=0; i< resData.length; i++){
-        this.coinList.push(resData[i].item);
+      for (let i = 0; i < resData.length; i++) {
+        this.coinList.push(resData[i].item)
       }
     })
-
   }
 }
 </script>

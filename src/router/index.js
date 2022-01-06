@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainPage from '../views/MainPage.vue'
 import CoinList from '../views/coins/CoinList.vue'
+import CoinDetail from '../components/CoinDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/coins',
     name: 'CoinList',
     component: CoinList
+  },
+  {
+    path: '/coinDetail',
+    name: 'CoinDetail',
+    component: CoinDetail
   }
 ]
 
