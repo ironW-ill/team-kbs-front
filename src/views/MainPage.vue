@@ -1,22 +1,44 @@
 <template>
-  <div>
-    <h2>MAIN</h2>
-  </div>
+  <v-row>
+    <v-col cols="12"
+      ><template>
+        <v-card>
+          <v-card-title>
+            <v-text-field append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
+          </v-card-title>
+          <v-data-table :headers="headers" :items="coinList">
+            <template v-slot:[`item.large`]="{ item }">
+              <v-img max-width="35" :src="item.large" />
+            </template>
+          </v-data-table>
+        </v-card>
+      </template>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
   name: 'MainPage',
-
   data() {
-    return {}
+    return {
+      coinList: [],
+      headers: [
+        { text: '#', value: 'large', align: 'left' },
+        { text: '코인명', value: 'id', align: 'left' },
+        { text: '심볼명', value: 'symbol', aligh: 'left' },
+        { text: '현재가', value: 'price_btc', aligh: 'left' }
+      ]}
   },
 
   created() {
-    // 코인게코 API 연동핑 테스트
-    this.$axios.get(this.$coingecko + '/v3/ping').then((res) => {
-      console.log(res.data.gecko_says) // (V3) To the Moon!
+    this.$axios.get("https://api.coingecko.com/api/v3/search/trending").then((res) => {
+      const resData = res.data.coins
+      for(let i=0; i< resData.length; i++){
+        this.coinList.push(resData[i].item);
+      }
     })
+
   }
 }
 </script>
